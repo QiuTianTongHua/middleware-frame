@@ -58,13 +58,14 @@
         <spring-amqp.version>1.7.3.RELEASE</spring-amqp.version>
         <spring-rabbit.version>1.7.3.RELEASE</spring-rabbit.version>
         <amqp-client.version>4.2.1</amqp-client.version>
+        <junit.version>4.12</junit.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -380,11 +381,6 @@
             <groupId>apache-httpclient</groupId>
             <artifactId>commons-httpclient</artifactId>
             <version>${commons-httpclient.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.system.commons</groupId>
-            <artifactId>commons</artifactId>
-            <version>${commons.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>

@@ -1,33 +1,28 @@
 package com.qiutian.middleware;
 
-import junit.framework.Test;
+import com.alibaba.fastjson.JSON;
+import com.qiutian.middleware.services.RedisServices;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
-
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import lombok.extern.slf4j.Slf4j;
+import org.redisson.core.RLock;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  * Unit test for simple App.
  */
-public class ApplicationTest extends TestCase {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public ApplicationTest(String testName ) {
-        super( testName );
-    }
+@Slf4j
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest
+public class ApplicationTest extends TestCase{
+    @Autowired
+    private RedisServices redisServices;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite() {
-        return new TestSuite( ApplicationTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp() {
-        assertTrue( true );
+    @Test
+    public void rLockTest() {
+        RLock lock = redisServices.lock("testRedisson", 30);
+        log.info("获取锁结果：{}", JSON.toJSONString(lock));
     }
 }

@@ -1,5 +1,7 @@
 package com.qiutian.middleware.config;
 
+import org.redisson.Config;
+import org.redisson.Redisson;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -53,6 +55,8 @@ public class RedisConfig {
     @Value("${redis3.port}")
     private String port3;
 
+    private static Config config = new Config();
+
     @Bean
     public JedisPoolConfig jedisPoolConfig() {
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
@@ -91,5 +95,21 @@ public class RedisConfig {
         StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
         stringRedisTemplate.setConnectionFactory(jedisConnectionFactory());
         return stringRedisTemplate;
+    }
+
+    @Bean
+    public Redisson redisson() {
+        config.useSentinelConnection().setMasterName(redisSentinelConfiguration().getMaster().getName());
+        config.useSentinelConnection().setRetryInterval(1000);
+        config.useSentinelConnection().setRetryAttempts(1);
+        Set<RedisNode> nodes = redisSentinelConfiguration().getSentinels();
+        String[] adds = new String[nodes.size()];
+        int position = 0;
+        for(RedisNode node : nodes){
+            adds[position] = node.getHost() + ":" + node.getPort();
+            position ++;
+        }
+        config.useSentinelConnection().addSentinelAddress(adds);
+        return Redisson.create(config);
     }
 }
