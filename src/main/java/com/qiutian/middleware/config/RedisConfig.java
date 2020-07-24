@@ -2,6 +2,7 @@ package com.qiutian.middleware.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisNode;
 import org.springframework.data.redis.connection.RedisSentinelConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
@@ -16,6 +17,7 @@ import java.util.Set;
  * @author qiutian
  * @date 2020/7/23
  */
+@Configuration
 public class RedisConfig {
 
     @Value("${redis.minIdle}")
