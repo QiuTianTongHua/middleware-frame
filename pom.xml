@@ -59,9 +59,15 @@
         <spring-rabbit.version>1.7.3.RELEASE</spring-rabbit.version>
         <amqp-client.version>4.2.1</amqp-client.version>
         <junit.version>4.12</junit.version>
+        <ths-data.version>1.0.0-SNAPSHOT</ths-data.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.ths</groupId>
+            <artifactId>ths-data</artifactId>
+            <version>${ths-data.version}</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
