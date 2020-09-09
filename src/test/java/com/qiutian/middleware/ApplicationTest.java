@@ -2,6 +2,7 @@ package com.qiutian.middleware;
 
 import Ths.JDIBridge;
 import com.alibaba.fastjson.JSON;
+import com.qiutian.middleware.dto.ThsValuationResDTO;
 import com.qiutian.middleware.services.RedisServices;
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Map;
+
 import static Ths.JDIBridge.THS_RealtimeQuotes;
 
 /**
@@ -21,12 +24,12 @@ import static Ths.JDIBridge.THS_RealtimeQuotes;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class ApplicationTest extends TestCase {
-    @Autowired
-    private RedisServices redisServices;
+
 
     @Test
     public void rLockTest() {
         System.out.println(System.getProperty("java.library.path"));
+        Map getenv = System.getenv();
 
         System.load("D:\\Ths\\THSDataInterface_Windows\\bin\\x64\\iFinDJava_x64.dll");
 
@@ -34,7 +37,8 @@ public class ApplicationTest extends TestCase {
         if (ret == 0) {
             while (true) {
                 /*ret = JDIBridge.THS_iFinDLogin("ifind_e001", "test");*/
-                String result = JDIBridge.THS_RealtimeQuotes("000003.OF","real_time_valuation");
+                String result = JDIBridge.THS_RealtimeQuotes("700001.OF,700002.OF,700003.OF","real_time_valuation");
+                ThsValuationResDTO resDTO = JSON.parseObject(result, ThsValuationResDTO.class);
                 System.out.println("=========" + result);
 
 
