@@ -16,7 +16,6 @@ import java.util.concurrent.TimeUnit;
  * @date 2020/7/24
  */
 @Slf4j
-@Service
 public class RedisServices {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;

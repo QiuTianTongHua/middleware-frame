@@ -19,7 +19,6 @@ import java.util.Set;
  * @author qiutian
  * @date 2020/7/23
  */
-@Configuration
 public class RedisConfig {
 
     @Value("${redis.minIdle}")
