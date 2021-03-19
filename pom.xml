@@ -31,7 +31,7 @@
         <logback-core.version>1.1.11</logback-core.version>
         <logback.version>1.0.0</logback.version>
         <lombok.version>1.16.6</lombok.version>
-        <c3p0.version>0.9.5</c3p0.version>
+        <c3p0.version>0.9.5.4</c3p0.version>
         <mysql-connector-java.version>5.1.34</mysql-connector-java.version>
         <dubbo.version>2.5.3</dubbo.version>
         <zookeeper.version>3.4.6</zookeeper.version>
