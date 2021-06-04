@@ -47,7 +47,7 @@
         <redisson.version>2.1.4</redisson.version>
         <jedis.version>2.9.0</jedis.version>
         <spring-data-redis.version>1.8.6.RELEASE</spring-data-redis.version>
-        <httpclient.version>4.5</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <httpcore.version>4.4.1</httpcore.version>
         <commons-codec.verison>1.6</commons-codec.verison>
         <lang-common.version>3.0-SNAPSHOT</lang-common.version>
