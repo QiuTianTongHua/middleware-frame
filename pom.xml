@@ -28,7 +28,7 @@
         <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
         <slf4j.version>1.7.9</slf4j.version>
         <logback-classic.version>1.1.11</logback-classic.version>
-        <logback-core.version>1.1.11</logback-core.version>
+        <logback-core.version>1.2.0</logback-core.version>
         <logback.version>1.0.0</logback.version>
         <lombok.version>1.16.6</lombok.version>
         <c3p0.version>0.9.5</c3p0.version>
