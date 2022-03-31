@@ -25,7 +25,7 @@
         <maven-source-plugin>2.1</maven-source-plugin>
         <java.encoding>UTF-8</java.encoding>
         <org.springframework.version>4.3.10.RELEASE</org.springframework.version>
-        <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
+        <spring.boot.version>2.5.12</spring.boot.version>
         <slf4j.version>1.7.9</slf4j.version>
         <logback-classic.version>1.1.11</logback-classic.version>
         <logback-core.version>1.1.11</logback-core.version>
